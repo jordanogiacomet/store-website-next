@@ -6,6 +6,6 @@ interface HeaderRootProps {
 
 export const HeaderRoot = ({ children }: HeaderRootProps) => {
   return (
-    <header className='bg-white p-6 flex justify-between'>{children}</header>
+    <nav className='bg-white fixed top-0 left-0 right-0 z-10 opacity-100'>{children}</nav>
   );
 };
