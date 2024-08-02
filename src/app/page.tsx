@@ -1,15 +1,9 @@
-import { Header } from '@/components/Header';
-
-
+import React from 'react';
 
 export default function Home() {
   return (
     <main>
-      <Header.Root>
-        <Header.LinkRoot>
-          <Header.LinkAnchor link='' text='Logo'/>
-        </Header.LinkRoot>
-      </Header.Root>
+      <h1 className="text-white">Welcome to the Home Page</h1>
     </main>
   );
 }

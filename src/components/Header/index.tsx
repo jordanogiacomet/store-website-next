@@ -1,5 +1,5 @@
-import { LogoLink } from '../LogoLink';
 import { HeaderRoot } from './HeaderRoot';
+import { LogoLink } from '../LogoLink';
 
 export const Header = {
   Root: HeaderRoot,

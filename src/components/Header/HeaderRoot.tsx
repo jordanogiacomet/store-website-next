@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 interface HeaderRootProps {
   children: ReactNode;
-};
+}
 
 export const HeaderRoot = ({ children }: HeaderRootProps) => {
   return (
