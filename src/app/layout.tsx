@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { Header } from '@/components/Header';
 import { UserRound, Phone, ShoppingCart } from 'lucide-react';
 import './globals.css';
+import MobileMenu from '@/components/MobileMenu';
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -38,6 +39,7 @@ export default function RootLayout({
                 </Header.MenuLinkAnchor>
               </Header.MenuLinkRoot>
             </Header.Menu>
+            <MobileMenu />
           </Header.Container>
         </Header.Root>
       {children}

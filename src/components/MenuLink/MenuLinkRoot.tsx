@@ -5,5 +5,5 @@ interface MenuLinkRoot{
 };
 
 export const MenuLinkRoot = ({ children }: MenuLinkRoot) => {
-  return <li className='flex flex-row gap-2'>{children}</li>
+  return <li className='flex gap-2 flex-row items-center border-b-4 border-transparent p-2 group hover:border-pink-500 transition-colors'>{children}</li>
 };
