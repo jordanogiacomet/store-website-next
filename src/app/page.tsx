@@ -1,9 +1,15 @@
-import { Heading } from '@/components/Heading';
+import { Header } from '@/components/Header';
+
+
 
 export default function Home() {
   return (
     <main>
-      <Heading>Oie</Heading>
+      <Header.Root>
+        <Header.LinkRoot>
+          <Header.LinkAnchor link='' text='Logo'/>
+        </Header.LinkRoot>
+      </Header.Root>
     </main>
   );
 }
