@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { UserRound, Phone, ShoppingCart } from 'lucide-react';
 import './globals.css';
 import MobileMenu from '@/components/MobileMenu';
+import { Subheader } from '@/components/Subheader';
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -41,6 +42,7 @@ export default function RootLayout({
             </Header.Menu>
             <MobileMenu />
           </Header.Container>
+          <Subheader />
         </Header.Root>
       {children}
     </body>
