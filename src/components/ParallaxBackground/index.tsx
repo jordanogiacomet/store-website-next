@@ -1,8 +1,7 @@
-'use client';
+'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useParallax } from '../../contexts/ParallaxContext';
-import P from 'prop-types';
 import { StaticImageData } from 'next/image'; // Import StaticImageData
 
 // Update the interface to accept both string and StaticImageData
@@ -20,7 +19,7 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = ({ src, speed }) =
         backgroundImage: `url(${typeof src === 'string' ? src : src.src})`, // Handle both types
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: '100vh', 
+        height: 'calc(100vh - 135px)', // Adjust height to prevent overlap with Divider
         transform: `translateY(${offsetY * speed}px)`,
       }}
       className="absolute top-0 left-0 w-full z-[-1]" 
