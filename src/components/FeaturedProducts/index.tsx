@@ -17,26 +17,36 @@ const FeaturedProducts: React.FC = () => {
   return (
     <div className="text-pink-500 py-12 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-7">
       {products.map(product => (
-        <Box key={product.id} style={{ width: '150px' }}>
+        <Box key={product.id} style={{ width: '200px' }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)" }}
             transition={{ type: "spring", stiffness: 300 }}
+            className="relative"
           >
-            <Card size="1" className="rounded-lg overflow-hidden h-full p-4 flex flex-col">
-              <Inset clip="padding-box" side="top" pb="current">
+            <Card 
+              size="1" 
+              className="rounded-lg overflow-hidden h-full flex flex-col shadow-sm"
+              style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+            >
+              <Box className="p-4 flex justify-center items-center">
                 <Image 
-                  className='block object-cover w-full h-40' 
+                  className="object-contain w-full h-40 transition-all duration-300 transform hover:scale-105" 
                   src={product.image} 
                   width={200} 
                   height={200} 
                   alt={`${product.name} image`} 
                 />
-              </Inset>
-              <Text as="p" size="2" className="text-center pt-4 flex-grow font-extrabold">
-                <Strong>{product.name}</Strong> - {product.price}
-              </Text>
+              </Box>
+              <Box 
+                className="bg-white rounded-t-lg mt-auto p-4"
+                style={{ width: '100%', borderTop: '1px solid #eee' }}
+              >
+                <Text as="p" size="2" className="text-center font-extrabold">
+                  <Strong>{product.name}</Strong> - {product.price}
+                </Text>
+              </Box>
             </Card>
           </motion.div>
         </Box>
