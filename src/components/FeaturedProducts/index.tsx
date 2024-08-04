@@ -34,7 +34,7 @@ const FeaturedProducts: React.FC = () => {
                   alt={`${product.name} image`} 
                 />
               </Inset>
-              <Text as="p" size="2" className="text-center pt-4 flex-grow">
+              <Text as="p" size="2" className="text-center pt-4 flex-grow font-extrabold">
                 <Strong>{product.name}</Strong> - {product.price}
               </Text>
             </Card>

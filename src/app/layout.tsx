@@ -5,6 +5,7 @@ import { UserRound, Phone, ShoppingCart } from 'lucide-react';
 import './globals.css';
 import MobileMenu from '@/components/MobileMenu';
 import Subheader from "@/components/Subheader";
+import { ParallaxProvider } from "@/contexts/ParallaxContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+  <ParallaxProvider>
     <html lang="en">
       <body className={`${montserrat.className} h-screen bg-black`}>
         <Header.Root>
@@ -53,5 +55,6 @@ export default function RootLayout({
         {children}
       </body>
     </html>
+  </ParallaxProvider>
   );
 };
