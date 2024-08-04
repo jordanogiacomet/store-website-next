@@ -4,8 +4,21 @@ import { Header } from '@/components/Header';
 import { UserRound, Phone, ShoppingCart } from 'lucide-react';
 import './globals.css';
 import MobileMenu from '@/components/MobileMenu';
-import { Subheader } from '@/components/Subheader';
+import Subheader from "@/components/Subheader";
+
 const montserrat = Montserrat({ subsets: ["latin"] });
+
+const menuItems = [
+  { icon: UserRound, text: 'Conta', href: '/' },
+  { icon: Phone, text: 'Suporte', href: '/' },
+  { icon: ShoppingCart, text: 'Carrinho', href: '/' },
+];
+
+const categories = [
+  { label: 'Electronics', items: ['Phones', 'Laptops', 'Cameras'] },
+  { label: 'Fashion', items: ['Clothing', 'Shoes', 'Accessories'] },
+  { label: 'Home', items: ['Furniture', 'Decor', 'Kitchen'] },
+];
 
 export default function RootLayout({
   children,
@@ -14,39 +27,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className={`${montserrat.className} h-screen bg-black`}>
+      <body className={`${montserrat.className} h-screen bg-black`}>
         <Header.Root>
           <Header.Container>
             <Header.LinkRoot>
               <Header.LinkAnchor link='/' text='Logo'/>
             </Header.LinkRoot>
             <Header.Menu>
-              <Header.MenuLinkRoot>
-                <Header.MenuLinkIcon icon={UserRound} />
-                <Header.MenuLinkAnchor href='/' onClick={() => {}}>
-                  Conta
-                </Header.MenuLinkAnchor>
-              </Header.MenuLinkRoot>
-              <Header.MenuLinkRoot>
-                <Header.MenuLinkIcon icon={Phone} />
-                <Header.MenuLinkAnchor href='/' onClick={() => {}}>
-                  Suporte
-                </Header.MenuLinkAnchor>
-              </Header.MenuLinkRoot>
-              <Header.MenuLinkRoot>
-                <Header.MenuLinkIcon icon={ShoppingCart} />
-                <Header.MenuLinkAnchor href='/' onClick={() => {}}>
-                  Carrinho
-                </Header.MenuLinkAnchor>
-              </Header.MenuLinkRoot>
+              {menuItems.map(({ icon, text, href }) => (
+                <Header.MenuLinkRoot key={text}>
+                  <Header.MenuLinkIcon icon={icon} />
+                  <Header.MenuLinkAnchor href={href} onClick={() => {}}>
+                    {text}
+                  </Header.MenuLinkAnchor>
+                </Header.MenuLinkRoot>
+              ))}
             </Header.Menu>
             <MobileMenu />
           </Header.Container>
-          <Subheader />
+          <Subheader categories={categories} /> 
         </Header.Root>
-      {children}
-    </body>
+        {children}
+      </body>
     </html>
   );
 };
-

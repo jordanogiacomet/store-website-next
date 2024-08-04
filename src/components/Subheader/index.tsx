@@ -1,27 +1,24 @@
 import React from 'react';
 import { Dropdown } from '../Dropdown';
 
-export const Subheader = () => {
+interface SubheaderProps {
+  categories: { label: string; items: string[] }[];
+}
+
+const Subheader: React.FC<SubheaderProps> = React.memo(({ categories }) => {
   return (
     <div className='p-6 bg-pink-200 h-16'>
       <ul className='flex flex-row justify-center items-center gap-28'>
-        <li>
-          <Dropdown label="Acessórios" items={['Relógios', 'Bijuterias', 'Óculos']} />
-        </li>
-        <li>
-          <Dropdown label="Promoções" items={['Descontos', 'Ofertas Especiais']} />
-        </li>
-        <li>
-          <Dropdown label="Boca" items={['Batom', 'Gloss', 'Lápis de Boca']} />
-        </li>
-        <li>
-          <Dropdown label="Face" items={['Base', 'Pó Compacto', 'Blush']} />
-        </li>
-        <li>
-          <Dropdown label="Olhos" items={['Máscara de Cílios', 'Sombra', 'Delineador']} />
-        </li>
+        {categories.map((category, index) => (
+          <li key={index}>
+            <Dropdown label={category.label} items={category.items} />
+          </li>
+        ))}
       </ul>
     </div>
   );
-};
+});
 
+Subheader.displayName = 'Subheader';
+
+export default Subheader;
