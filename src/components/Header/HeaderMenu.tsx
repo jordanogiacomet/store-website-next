@@ -6,7 +6,7 @@ interface HeaderMenuProps {
 
 export const HeaderMenu: FC<HeaderMenuProps> = ({ children }) => {
   return (
-    <ul className='flex flex-row gap-12 hidden md:flex'>
+    <ul className='hidden md:flex flex-row gap-12'>
       {children}
     </ul>
   );

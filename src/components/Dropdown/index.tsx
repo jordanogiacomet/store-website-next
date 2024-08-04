@@ -49,7 +49,7 @@ export const Dropdown: FC<DropdownProps> = ({ label, items }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute bg-white border border-gray-300 mt-4 rounded shadow-lg"
+            className="absolute bg-white border border-gray-300 mt-4 rounded-lg shadow-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

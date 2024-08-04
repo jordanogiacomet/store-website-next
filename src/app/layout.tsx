@@ -18,6 +18,9 @@ const categories = [
   { label: 'Electronics', items: ['Phones', 'Laptops', 'Cameras'] },
   { label: 'Fashion', items: ['Clothing', 'Shoes', 'Accessories'] },
   { label: 'Home', items: ['Furniture', 'Decor', 'Kitchen'] },
+  { label: 'T-Shirts', items: ['Furniture', 'Decor', 'Kitchen'] },
+  { label: 'Shoes', items: ['Furniture', 'Decor', 'Kitchen'] },
+  
 ];
 
 export default function RootLayout({
