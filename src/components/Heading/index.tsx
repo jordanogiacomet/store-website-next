@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, FC } from 'react';
 
 interface HeadingProps {
   children: ReactNode;
@@ -7,11 +7,17 @@ interface HeadingProps {
   uppercase?: boolean;
   colorDark?: boolean;
   className?: string;
-};
+}
 
-
-export const Heading = ({ children, as = 'h1', size = 'huge', uppercase = false, colorDark = true, className }: HeadingProps) => {
-  const baseClasses = `(${colorDark} ? text-black : text-white) (${uppercase} ? uppercase : '')`;
+export const Heading: FC<HeadingProps> = ({
+  children,
+  as = 'h1',
+  size = 'huge',
+  uppercase = false,
+  colorDark = true,
+  className = '',
+}) => {
+  const baseClasses = `${colorDark ? 'text-black' : 'text-white'} ${uppercase ? 'uppercase' : ''}`;
   const sizeClasses = {
     small: 'text-sm',
     medium: 'text-base',
@@ -19,10 +25,11 @@ export const Heading = ({ children, as = 'h1', size = 'huge', uppercase = false,
     huge: 'text-2xl',
   };
 
-  const combinedClasses = `${baseClasses} ${sizeClasses[size]}`;
-  const Tag = as as keyof JSX.IntrinsicElements;
-  return(
-    <Tag className={`${combinedClasses} ${className}`}>
+  const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${className}`;
+  const Tag = as;
+
+  return (
+    <Tag className={combinedClasses}>
       {children}
     </Tag>
   );

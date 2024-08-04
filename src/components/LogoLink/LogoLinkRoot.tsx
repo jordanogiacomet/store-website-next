@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, FC } from 'react';
 import { Heading } from '../Heading';
 
 interface LogoLinkRootProps {
   children: ReactNode;
 }
 
-export const LogoLinkRoot = ({ children }: LogoLinkRootProps) => {
+export const LogoLinkRoot: FC<LogoLinkRootProps> = ({ children }) => {
   return (
     <Heading size='huge' uppercase colorDark className='font-bold'>
       {children}

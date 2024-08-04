@@ -14,4 +14,4 @@ export const Header = {
   MenuLinkIcon: MenuLink.Icon,
   LinkRoot: LogoLink.Root,
   LinkAnchor: LogoLink.Anchor,
-};
+}as const;

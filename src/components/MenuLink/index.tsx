@@ -6,4 +6,4 @@ export const MenuLink = {
   Root: MenuLinkRoot,
   Anchor: MenuLinkAnchor,
   Icon: MenuIcon,
-}
+} as const; 

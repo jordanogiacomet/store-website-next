@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface DropdownProps {
@@ -7,17 +7,12 @@ interface DropdownProps {
   items: string[];
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ label, items }) => {
+export const Dropdown: FC<DropdownProps> = ({ label, items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
+  const handleMouseEnter = () => setIsOpen(true);
+  const handleMouseLeave = () => setIsOpen(false);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -28,9 +23,9 @@ export const Dropdown: React.FC<DropdownProps> = ({ label, items }) => {
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => handleClickOutside(event);
 
-    document.addEventListener('mousedown', handleDocumentClick);
+    document.addEventListener('mousedown', handleDocumentClick as EventListener);
     return () => {
-      document.removeEventListener('mousedown', handleDocumentClick);
+      document.removeEventListener('mousedown', handleDocumentClick as EventListener);
     };
   }, []);
 
@@ -41,9 +36,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ label, items }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        className="flex items-center gap-2 font-bold text-pink-500 cursor-pointer"
-      >
+      <button className="flex items-center gap-2 font-bold text-pink-500 cursor-pointer">
         {label}
         <motion.div
           initial={{ rotate: 0 }}

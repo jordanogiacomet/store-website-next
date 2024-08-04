@@ -1,11 +1,11 @@
-import { ElementType } from 'react'
+import { ElementType, FC } from 'react';
 
-interface MenuIconProps{
-  icon: ElementType;
-};
+interface MenuIconProps {
+  icon: ElementType; 
+}
 
-export const MenuIcon = ({ icon: Icon }: MenuIconProps) => {
-  return(
-    <Icon className='w-6 h-6 text-pink-500'/>
+export const MenuIcon: FC<MenuIconProps> = ({ icon: Icon }) => {
+  return (
+    <Icon className='w-6 h-6 text-pink-500' />
   );
 };
