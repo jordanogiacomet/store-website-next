@@ -19,7 +19,7 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = ({ src, speed }) =
         backgroundImage: `url(${typeof src === 'string' ? src : src.src})`, // Handle both types
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: 'calc(100vh - 135px)', // Adjust height to prevent overlap with Divider
+        height: 'calc(100vh)', // Adjust height to prevent overlap with Divider
         transform: `translateY(${offsetY * speed}px)`,
       }}
       className="absolute top-0 left-0 w-full z-[-1]" 
