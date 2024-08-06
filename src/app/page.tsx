@@ -6,7 +6,7 @@ import dragonScales from '../../public/dragon-scales.png';
 
 export default function Home() {
   return (
-    <main className='mt-[154px] bg-transparent h-screen relative'>
+    <main className='md:mt-[154px] bg-transparent h-screen relative mt-[96px] '>
       <FeaturedProducts />
     </main>
   );

@@ -7,10 +7,11 @@ export interface TextFieldComponentRootProps {
 }
 
 const TextFieldComponentRoot: React.FC<TextFieldComponentRootProps> = ({ children, placeholder }) => {
-    return(
+    return (
         <TextField.Root 
             placeholder={placeholder} 
-            className='w-64 h-12 pl-2 border border-pink-200 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-500 flex items-center'
+            className='text-field w-full sm:w-64 h-12 pl-2 border border-pink-200 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-500 flex items-center 
+                       md:w-64 lg:w-80' 
         >
             {children}
         </TextField.Root>
