@@ -1,33 +1,29 @@
-'use client';
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+// ParallaxContext.tsx
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-interface ParallaxContextType {
-  offsetY: number;
-}
+const ParallaxContext = createContext({ scrollY: 0 });
 
-const ParallaxContext = createContext<ParallaxContextType>({ offsetY: 0 });
+export const useParallax = () => {
+    return useContext(ParallaxContext);
+};
 
-export const useParallax = () => useContext(ParallaxContext);
+export const ParallaxProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [scrollY, setScrollY] = useState(0);
 
-interface ParallaxProviderProps {
-  children: ReactNode; 
-}
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    };
 
-export const ParallaxProvider: React.FC<ParallaxProviderProps> = ({ children }) => {
-  const [offsetY, setOffsetY] = useState(0);
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
-  const handleScroll = () => {
-    setOffsetY(window.scrollY); 
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <ParallaxContext.Provider value={{ offsetY }}>
-      {children} 
-    </ParallaxContext.Provider>
-  );
+    return (
+        <ParallaxContext.Provider value={{ scrollY }}>
+            {children}
+        </ParallaxContext.Provider>
+    );
 };
