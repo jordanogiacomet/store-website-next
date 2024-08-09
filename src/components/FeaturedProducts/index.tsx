@@ -15,7 +15,7 @@ const products = [
 
 const FeaturedProducts: React.FC = () => {
   return (
-    <div className="text-pink-500 p-12 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 bg-pink-100 h-screen">
+    <div className="text-pink-500 p-12 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 bg-pink-100">
       {products.map(product => (
         <Box key={product.id} style={{ width: '200px' }}>
           <motion.div

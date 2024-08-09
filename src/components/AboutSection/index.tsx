@@ -10,18 +10,18 @@ const AboutSection: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Atualiza a visibilidade com base na interseção
+        setIsVisible(entry.isIntersecting); 
       },
-      { threshold: 0.1 } // Ajuste o threshold conforme necessário
+      { threshold: 0.1 } 
     );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current); // Observa a seção
+      observer.observe(sectionRef.current); 
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current); // Para de observar ao desmontar
+        observer.unobserve(sectionRef.current);
       }
     };
   }, []);
@@ -30,7 +30,7 @@ const AboutSection: React.FC = () => {
     <section ref={sectionRef} className="relative flex flex-col md:flex-row items-center justify-center bg-pink-100 text-black py-20">
       <div className="md:w-1/2 p-4">
         <motion.h2
-          className="text-4xl font-bold mb-4"
+          className="text-4xl font-bold mb-4 text-pink-500"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }} // Animação baseada na visibilidade
           transition={{ duration: 0.5, ease: "easeInOut" }}

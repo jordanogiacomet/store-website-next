@@ -8,6 +8,7 @@ import Subheader from "@/components/Subheader";
 import { ParallaxProvider } from "@/contexts/ParallaxContext";
 import { TextFieldComponent } from "@/components/TextField";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -61,6 +62,7 @@ export default function RootLayout({
             <Subheader categories={categories} />
           </Header.Root>
           {children}
+          <Footer />
         </body>
       </html>
     </ParallaxProvider>
