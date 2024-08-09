@@ -3,6 +3,7 @@ import FeaturedProducts from '@/components/FeaturedProducts';
 import React from 'react';
 import ParallaxSection from '@/components/ParallaxSection';
 import { ParallaxProvider } from '@/contexts/ParallaxContext';
+import AboutSection from '@/components/AboutSection';
 
 
 
@@ -14,7 +15,7 @@ export default function Home() {
       <ParallaxProvider>
         <ParallaxSection /> 
       </ParallaxProvider>
-      <section className='h-[500px]'></section>
+      <AboutSection />
     </main>
   );
 }

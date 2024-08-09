@@ -11,7 +11,7 @@ interface ParallaxBackgroundProps {
 }
 
 const ParallaxBackground: React.FC<ParallaxBackgroundProps> = ({ src, speed }) => {
-  const { offsetY } = useParallax();
+  const { scrollY } = useParallax();
 
   return (
     <motion.div
@@ -20,7 +20,7 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = ({ src, speed }) =
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: 'calc(100vh)', // Adjust height to prevent overlap with Divider
-        transform: `translateY(${offsetY * speed}px)`,
+        transform: `translateY(${scrollY * speed}px)`,
       }}
       className="absolute top-0 left-0 w-full z-[-1]" 
     />
